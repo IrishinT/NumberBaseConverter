@@ -31,5 +31,24 @@ namespace NumberBaseConverter
         {
 
         }
+
+        private void convertButton_Click(object sender, EventArgs e)
+        {
+            string input = inputTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                MessageBox.Show("Введите число", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (fromComboBox.SelectedItem == null || toComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите системы счисления", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+
     }
 }
