@@ -38,23 +38,23 @@ namespace NumberBaseConverter
 
             if (string.IsNullOrEmpty(input))
             {
-                MessageBox.Show("Введите число", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ", "РћС€РёР±РєР°!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (fromComboBox.SelectedItem == null || toComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Выберите системы счисления", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ СЃРёСЃС‚РµРјС‹ СЃС‡РёСЃР»РµРЅРёСЏ", "РћС€РёР±РєР°!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if(!int.TryParse(fromComboBox.SelectedItem.ToString(), out int inputBase))
             {
                 MessageBox.Show("""
-                    Произошла внутренняя ошибка в ходе выполнения данной операции!
-                    Ошибка перевода входной СС в число.
+                    РџСЂРѕРёР·РѕС€Р»Р° РІРЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° РІ С…РѕРґРµ РІС‹РїРѕР»РЅРµРЅРёСЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё!
+                    РћС€РёР±РєР° РїРµСЂРµРІРѕРґР° РІС…РѕРґРЅРѕР№ РЎРЎ РІ С‡РёСЃР»Рѕ.
                     """, 
-                    "Критическая ошибка!", 
+                    "РљСЂРёС‚РёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°!", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Stop);
                 return;
@@ -63,10 +63,10 @@ namespace NumberBaseConverter
             if (!int.TryParse(fromComboBox.SelectedItem.ToString(), out int outBase))
             {
                 MessageBox.Show("""
-                    Произошла внутренняя ошибка в ходе выполнения данной операции!
-                    Ошибка перевода выходной СС в число.
+                    РџСЂРѕРёР·РѕС€Р»Р° РІРЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° РІ С…РѕРґРµ РІС‹РїРѕР»РЅРµРЅРёСЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё!
+                    РћС€РёР±РєР° РїРµСЂРµРІРѕРґР° РІС‹С…РѕРґРЅРѕР№ РЎРЎ РІ С‡РёСЃР»Рѕ.
                     """,
-                    "Критическая ошибка!",
+                    "РљСЂРёС‚РёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°!",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Stop);
                 return;
@@ -80,16 +80,16 @@ namespace NumberBaseConverter
             }
             catch (FormatException)
             {
-                MessageBox.Show("Входное значение не является числом для заданной системы счисления", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Р’С…РѕРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РЅРµ СЏРІР»СЏРµС‚СЃСЏ С‡РёСЃР»РѕРј РґР»СЏ Р·Р°РґР°РЅРЅРѕР№ СЃРёСЃС‚РµРјС‹ СЃС‡РёСЃР»РµРЅРёСЏ", "РћС€РёР±РєР°!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Входное значение слишком большое", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Р’С…РѕРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РѕРµ", "РћС€РёР±РєР°!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // TODO: вызов метода из библиотеки классов для выполнения бизнес-логики с параметрами inputNumber, inputBase, outputBase
+            // TODO: РІС‹Р·РѕРІ РјРµС‚РѕРґР° РёР· Р±РёР±Р»РёРѕС‚РµРєРё РєР»Р°СЃСЃРѕРІ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ Р±РёР·РЅРµСЃ-Р»РѕРіРёРєРё СЃ РїР°СЂР°РјРµС‚СЂР°РјРё inputNumber, inputBase, outputBase
 
 
         }
