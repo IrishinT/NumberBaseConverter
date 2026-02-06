@@ -60,7 +60,7 @@ namespace NumberBaseConverter
                 return;
             }
 
-            if (!int.TryParse(fromComboBox.SelectedItem.ToString(), out int outBase))
+            if (!int.TryParse(toComboBox.SelectedItem.ToString(), out int outputBase))
             {
                 MessageBox.Show("""
                     Произошла внутренняя ошибка в ходе выполнения данной операции!
@@ -72,24 +72,39 @@ namespace NumberBaseConverter
                 return;
             }
 
-            int inputNumber;
+            // Используем класс NumberValidator
+            // Проверяем валидность ввода для выбранной системы счисления
+            if (!NumberValidator.IsValidForBase(input, inputBase))
+            {
+                string errorMessage = NumberValidator.GetValidationError(input, inputBase);
+                MessageBox.Show(errorMessage, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // Выполняем конвертацию
             try
             {
-                inputNumber = Convert.ToInt32(input, inputBase);
+                string result = NumberValidator.ConvertNumber(input, inputBase, outputBase);
+                resultTextBox.Text = result;
             }
             catch (FormatException)
             {
-                MessageBox.Show("Входное значение не является числом для заданной системы счисления", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Входное значение не является числом для заданной системы счисления",
+                    "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Входное значение слишком большое", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Входное значение слишком большое",
+                    "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // TODO: вызов метода из библиотеки классов для выполнения бизнес-логики с параметрами inputNumber, inputBase, outputBase
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при конвертации: {ex.Message}",
+                    "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
 
         }
