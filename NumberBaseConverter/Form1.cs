@@ -84,7 +84,7 @@ namespace NumberBaseConverter
             // Выполняем конвертацию
             try
             {
-                string result = NumberValidator.ConvertNumber(input, inputBase, outputBase);
+                string result = NumberConverter.ConvertNumber(input, inputBase, outputBase);
                 resultTextBox.Text = result;
             }
             catch (FormatException)
@@ -105,7 +105,6 @@ namespace NumberBaseConverter
                     "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
 
         }
 
