@@ -8,9 +8,6 @@ namespace NumberBaseConverter
 {
     internal static class NumberConverter
     {
-        /// <summary>
-        /// Конвертирует число из одной системы счисления в другую
-        /// </summary>
         public static string ConvertNumber(string number, int fromBase, int toBase)
         {
             // Валидация входных параметров
@@ -31,10 +28,6 @@ namespace NumberBaseConverter
             // Возвращаем знак
             return isNegative ? "-" + result : result;
         }
-
-        /// <summary>
-        /// Конвертирует число в десятичную систему
-        /// </summary>
         private static int ToDecimal(string number, int fromBase)
         {
             int result = 0;
@@ -59,10 +52,6 @@ namespace NumberBaseConverter
 
             return result;
         }
-
-        /// <summary>
-        /// Конвертирует число из десятичной системы в указанную
-        /// </summary>
         private static string FromDecimal(int decimalNumber, int toBase)
         {
             if (decimalNumber == 0)
@@ -80,10 +69,6 @@ namespace NumberBaseConverter
 
             return result;
         }
-
-        /// <summary>
-        /// Преобразует символ в числовое значение
-        /// </summary>
         private static int CharToValue(char digit)
         {
             digit = char.ToUpper(digit);
@@ -93,10 +78,6 @@ namespace NumberBaseConverter
             else
                 return digit - 'A' + 10;
         }
-
-        /// <summary>
-        /// Валидация входных параметров конвертации
-        /// </summary>
         private static void ValidateParameters(string number, int fromBase, int toBase)
         {
             if (string.IsNullOrWhiteSpace(number))

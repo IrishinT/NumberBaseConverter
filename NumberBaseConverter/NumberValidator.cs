@@ -8,9 +8,6 @@ namespace NumberBaseConverter
 {
     internal static class NumberValidator
     {
-        /// <summary>
-        /// Проверяет корректность числа для заданной системы счисления
-        /// </summary>
         public static bool IsValidForBase(string number, int numberBase)
         {
             if (string.IsNullOrWhiteSpace(number))
@@ -35,10 +32,6 @@ namespace NumberBaseConverter
 
             return true;
         }
-
-        /// <summary>
-        /// Возвращает строку с допустимыми цифрами для системы счисления
-        /// </summary>
         private static string GetAllowedDigits(int numberBase)
         {
             if (numberBase < 2 || numberBase > 16)
@@ -47,10 +40,6 @@ namespace NumberBaseConverter
             const string allDigits = "0123456789ABCDEF";
             return allDigits.Substring(0, numberBase);
         }
-
-        /// <summary>
-        /// Получает понятное сообщение об ошибке валидации
-        /// </summary>
         public static string GetValidationError(string number, int numberBase)
         {
             if (string.IsNullOrWhiteSpace(number))
@@ -74,10 +63,6 @@ namespace NumberBaseConverter
 
             return "Число корректно";
         }
-
-        /// <summary>
-        /// Получает название системы счисления
-        /// </summary>
         private static string GetBaseName(int numberBase)
         {
             return numberBase switch
