@@ -32,6 +32,8 @@ namespace NumberBaseConverter
 
             return true;
         }
+
+        // Возвращает список допустимых символов для систем счисения от 2 до 16
         private static string GetAllowedDigits(int numberBase)
         {
             if (numberBase < 2 || numberBase > 16)
@@ -63,6 +65,8 @@ namespace NumberBaseConverter
 
             return "Число корректно";
         }
+
+        // Функция трасляции основания системы в её название
         private static string GetBaseName(int numberBase)
         {
             return numberBase switch
