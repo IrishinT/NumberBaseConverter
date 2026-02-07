@@ -56,7 +56,7 @@
             inputTextBox.Font = new Font("Segoe UI", 12F);
             inputTextBox.Location = new Point(48, 79);
             inputTextBox.Name = "inputTextBox";
-            inputTextBox.Size = new Size(201, 34);
+            inputTextBox.Size = new Size(313, 34);
             inputTextBox.TabIndex = 1;
             inputTextBox.TextChanged += textBox1_TextChanged;
             // 
@@ -66,7 +66,7 @@
             resultTextBox.Location = new Point(47, 477);
             resultTextBox.Name = "resultTextBox";
             resultTextBox.ReadOnly = true;
-            resultTextBox.Size = new Size(202, 34);
+            resultTextBox.Size = new Size(314, 34);
             resultTextBox.TabIndex = 2;
             resultTextBox.TextChanged += textBox2_TextChanged;
             // 
@@ -77,7 +77,7 @@
             fromComboBox.Items.AddRange(new object[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16" });
             fromComboBox.Location = new Point(48, 171);
             fromComboBox.Name = "fromComboBox";
-            fromComboBox.Size = new Size(201, 36);
+            fromComboBox.Size = new Size(313, 36);
             fromComboBox.TabIndex = 3;
             // 
             // toComboBox
@@ -87,7 +87,7 @@
             toComboBox.Items.AddRange(new object[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16" });
             toComboBox.Location = new Point(48, 277);
             toComboBox.Name = "toComboBox";
-            toComboBox.Size = new Size(201, 36);
+            toComboBox.Size = new Size(313, 36);
             toComboBox.TabIndex = 4;
             // 
             // label1
