@@ -1,3 +1,5 @@
+using Service;
+
 namespace NumberBaseConverter
 {
     public partial class Form1 : Form

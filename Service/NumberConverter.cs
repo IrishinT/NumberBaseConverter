@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NumberBaseConverter
+namespace Service
 {
-    internal static class NumberConverter
+    public static class NumberConverter
     {
         // Функция для конвертации числа number из системы счисления с основанием frombase в систему счисления с основанием toBase
         // Возвращает строку с результатом перевода

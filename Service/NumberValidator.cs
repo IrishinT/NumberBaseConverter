@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NumberBaseConverter
+namespace Service
 {
-    internal static class NumberValidator
+    public static class NumberValidator
     {
         public static bool IsValidForBase(string number, int numberBase)
         {
