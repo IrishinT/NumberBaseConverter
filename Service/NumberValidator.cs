@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,19 @@ namespace Service
 {
     public static class NumberValidator
     {
+        public static void ValidateParameters(string number, int fromBase, int toBase)
+        {
+            if (string.IsNullOrWhiteSpace(number))
+                throw new ArgumentException("Число не может быть пустым");
+
+            if (fromBase < 2 || fromBase > 16 || toBase < 2 || toBase > 16)
+                throw new ArgumentException("Система счисления должна быть от 2 до 16");
+
+            // Используем NumberValidator для проверки числа
+            if (!NumberValidator.IsValidForBase(number, fromBase))
+                throw new FormatException(NumberValidator.GetValidationError(number, fromBase));
+        }
+
         public static bool IsValidForBase(string number, int numberBase)
         {
             if (string.IsNullOrWhiteSpace(number))

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +12,6 @@ namespace Service
         // Возвращает строку с результатом перевода
         public static string ConvertNumber(string number, int fromBase, int toBase)
         {
-            // Валидация входных параметров
-            ValidateParameters(number, fromBase, toBase);
-
             // Если системы счисления одинаковые
             if (fromBase == toBase)
                 return number;
@@ -83,20 +80,6 @@ namespace Service
                 return digit - '0';
             else
                 return digit - 'A' + 10;
-        }
-
-        
-        private static void ValidateParameters(string number, int fromBase, int toBase)
-        {
-            if (string.IsNullOrWhiteSpace(number))
-                throw new ArgumentException("Число не может быть пустым");
-
-            if (fromBase < 2 || fromBase > 16 || toBase < 2 || toBase > 16)
-                throw new ArgumentException("Система счисления должна быть от 2 до 16");
-
-            // Используем NumberValidator для проверки числа
-            if (!NumberValidator.IsValidForBase(number, fromBase))
-                throw new FormatException(NumberValidator.GetValidationError(number, fromBase));
         }
     }
 }

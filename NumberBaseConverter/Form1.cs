@@ -1,4 +1,6 @@
 using Service;
+using System.Runtime.Intrinsics.Arm;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NumberBaseConverter
 {
@@ -86,6 +88,9 @@ namespace NumberBaseConverter
             // Выполняем конвертацию
             try
             {
+                // Валидация входных параметров
+                NumberValidator.ValidateParameters(input, inputBase, outputBase);
+
                 string result = NumberConverter.ConvertNumber(input, inputBase, outputBase);
                 resultTextBox.Text = result;
             }
