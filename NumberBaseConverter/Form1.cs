@@ -11,31 +11,25 @@ namespace NumberBaseConverter
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Обрабатывает нажатие кнопки конвертации: выполняет валидацию ввода и преобразование числа.
+        /// </summary>
+        /// <param name="sender">Источник события (кнопка convertButton).</param>
+        /// <param name="e">Аргументы события.</param>
+        /// <remarks>
+        /// Последовательность работы:
+        /// 1. Проверяет, что поле ввода не пустое
+        /// 2. Проверяет, выбраны ли системы счисления
+        /// 3. Преобразует выбранные значения в числа
+        /// 4. Валидирует число для исходной системы счисления
+        /// 5. Выполняет конвертацию через NumberConverter
+        /// 6. Отображает результат или сообщение об ошибке
+        /// </remarks>
         private void convertButton_Click(object sender, EventArgs e)
         {
             string input = inputTextBox.Text.Trim();

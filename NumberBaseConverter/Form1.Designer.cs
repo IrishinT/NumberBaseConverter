@@ -1,4 +1,4 @@
-﻿namespace NumberBaseConverter
+namespace NumberBaseConverter
 {
     partial class Form1
     {
@@ -58,7 +58,6 @@
             inputTextBox.Name = "inputTextBox";
             inputTextBox.Size = new Size(313, 34);
             inputTextBox.TabIndex = 1;
-            inputTextBox.TextChanged += textBox1_TextChanged;
             // 
             // resultTextBox
             // 
@@ -68,7 +67,6 @@
             resultTextBox.ReadOnly = true;
             resultTextBox.Size = new Size(314, 34);
             resultTextBox.TabIndex = 2;
-            resultTextBox.TextChanged += textBox2_TextChanged;
             // 
             // fromComboBox
             // 
@@ -99,7 +97,6 @@
             label1.Size = new Size(145, 28);
             label1.TabIndex = 5;
             label1.Text = "Введите число";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -130,7 +127,6 @@
             label4.Size = new Size(99, 28);
             label4.TabIndex = 8;
             label4.Text = "Результат";
-            label4.Click += label4_Click;
             // 
             // Form1
             // 

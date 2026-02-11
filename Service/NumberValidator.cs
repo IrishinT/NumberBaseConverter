@@ -8,6 +8,15 @@ namespace Service
 {
     public static class NumberValidator
     {
+
+        /// <summary>
+        /// Проверяет корректность входных параметров для конвертации чисел.
+        /// </summary>
+        /// <param name="number">Проверяемое число.</param>
+        /// <param name="fromBase">Исходное основание.</param>
+        /// <param name="toBase">Целевое основание.</param>
+        /// <exception cref="ArgumentException">Число пустое или основания вне диапазона 2-16.</exception>
+        /// <exception cref="FormatException">Число содержит недопустимые для основания символы.</exception>
         public static void ValidateParameters(string number, int fromBase, int toBase)
         {
             if (string.IsNullOrWhiteSpace(number))
@@ -21,6 +30,12 @@ namespace Service
                 throw new FormatException(NumberValidator.GetValidationError(number, fromBase));
         }
 
+        /// <summary>
+        /// Проверяет, содержит ли строка только допустимые для данного основания символы.
+        /// </summary>
+        /// <param name="number">Проверяемое число.</param>
+        /// <param name="numberBase">Основание системы счисления.</param>
+        /// <returns>true, если число корректно; иначе false.</returns>
         public static bool IsValidForBase(string number, int numberBase)
         {
             if (string.IsNullOrWhiteSpace(number))
@@ -46,7 +61,11 @@ namespace Service
             return true;
         }
 
-        // Возвращает список допустимых символов для систем счисения от 2 до 16
+        /// <summary>
+        /// Возвращает строку допустимых символов для указанного основания.
+        /// </summary>
+        /// <param name="numberBase">Основание системы счисления (2-16).</param>
+        /// <returns>Строка допустимых цифр или пустую строку при некорректном основании.</returns>
         private static string GetAllowedDigits(int numberBase)
         {
             if (numberBase < 2 || numberBase > 16)
@@ -55,6 +74,14 @@ namespace Service
             const string allDigits = "0123456789ABCDEF";
             return allDigits.Substring(0, numberBase);
         }
+
+
+        /// <summary>
+        /// Возвращает сообщение об ошибке валидации числа.
+        /// </summary>
+        /// <param name="number">Проверяемое число.</param>
+        /// <param name="numberBase">Основание системы счисления.</param>
+        /// <returns>Текстовое описание ошибки или сообщение об успехе.</returns>
         public static string GetValidationError(string number, int numberBase)
         {
             if (string.IsNullOrWhiteSpace(number))
@@ -79,7 +106,11 @@ namespace Service
             return "Число корректно";
         }
 
-        // Функция трасляции основания системы в её название
+        /// <summary>
+        /// Возвращает название системы счисления по её основанию.
+        /// </summary>
+        /// <param name="numberBase">Основание системы.</param>
+        /// <returns>Название системы (двоичная, восьмеричная, десятичная, шестнадцатеричная или n-ричная).</returns>
         private static string GetBaseName(int numberBase)
         {
             return numberBase switch

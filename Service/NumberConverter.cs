@@ -8,8 +8,13 @@ namespace Service
 {
     public static class NumberConverter
     {
-        // Функция для конвертации числа number из системы счисления с основанием frombase в систему счисления с основанием toBase
-        // Возвращает строку с результатом перевода
+        /// <summary>
+        /// Преобразует число из одной системы счисления в другую.
+        /// </summary>
+        /// <param name="number">Строковое представление числа.</param>
+        /// <param name="fromBase">Основание исходной системы (2-16).</param>
+        /// <param name="toBase">Основание целевой системы (2-16).</param>
+        /// <returns>Число в целевой системе счисления.</returns>
         public static string ConvertNumber(string number, int fromBase, int toBase)
         {
             // Если системы счисления одинаковые
@@ -28,7 +33,12 @@ namespace Service
             return isNegative ? "-" + result : result;
         }
 
-        // Функция перевода числа в системе счисления с основанием fromBase в десятичную систему
+        /// <summary>
+        /// Преобразует число из произвольной системы счисления в десятичную.
+        /// </summary>
+        /// <param name="number">Число в исходной системе счисления.</param>
+        /// <param name="fromBase">Основание исходной системы.</param>
+        /// <returns>Десятичное представление числа.</returns>
         private static int ToDecimal(string number, int fromBase)
         {
             int result = 0;
@@ -54,7 +64,12 @@ namespace Service
             return result;
         }
 
-        // Функция перевода числа из десятичной системы счисления в указанную toBase
+        /// <summary>
+        /// Преобразует число из десятичной системы в произвольную систему счисления.
+        /// </summary>
+        /// <param name="decimalNumber">Десятичное число.</param>
+        /// <param name="toBase">Основание целевой системы.</param>
+        /// <returns>Число в целевой системе счисления.</returns>
         private static string FromDecimal(int decimalNumber, int toBase)
         {
             if (decimalNumber == 0)
@@ -72,6 +87,13 @@ namespace Service
 
             return result;
         }
+
+
+        /// <summary>
+        /// Преобразует символ цифры в его числовое значение.
+        /// </summary>
+        /// <param name="digit">Символ (0-9, A-F).</param>
+        /// <returns>Числовое значение от 0 до 15.</returns>
         private static int CharToValue(char digit)
         {
             digit = char.ToUpper(digit);
